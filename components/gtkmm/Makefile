@@ -18,6 +18,7 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME= gtkmm
 
 COMPONENT_VERSION= 2.20.3
+COMPONENT_REVISION= 1
 COMPONENT_SUMMARY= gtkmm - C++ Wrapper for the Gtk+ Library (g++ - compiled)
 COMPONENT_SRC= $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE= $(COMPONENT_SRC).tar.bz2

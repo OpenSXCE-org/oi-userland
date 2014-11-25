@@ -18,6 +18,7 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME= cairomm
 
 COMPONENT_VERSION= 1.10.0
+COMPONENT_REVISION=1
 COMPONENT_SUMMARY= cairomm - C++ Wrapper for the cairo Library (g++ - compiled)
 COMPONENT_SRC= $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE= $(COMPONENT_SRC).tar.gz

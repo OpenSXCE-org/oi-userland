@@ -18,6 +18,7 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME= pangomm
 
 COMPONENT_VERSION= 2.28.4
+COMPONENT_REVISION=1
 COMPONENT_SUMMARY= pangomm - C++ Wrapper for the pango Library (g++ - compiled)
 COMPONENT_SRC= $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE= $(COMPONENT_SRC).tar.bz2

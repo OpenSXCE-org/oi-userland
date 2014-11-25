@@ -1,2 +1,15 @@
 # Don't depend on PostgreSQL compatibility  symbolic link, specify real PG version
 <transform file -> add pkg.depend.bypass-generate usr/lib(.*)/libpq.so.*>
+# Don't depend on Sun Studio-compiled C++ libraries, we use GNU C++ -compiled libraries
+# pkg:/library/desktop/c++/gtkmm
+<transform file -> add pkg.depend.bypass-generate usr/lib(.*)/libatkmm\.so.*>
+<transform file -> add pkg.depend.bypass-generate usr/lib(.*)/libgdkmm\.so.*>
+<transform file -> add pkg.depend.bypass-generate usr/lib(.*)/libgtkmm\.so.*>
+# pkg:/library/desktop/c++/pangomm
+<transform file -> add pkg.depend.bypass-generate usr/lib(.*)/libpangomm-1\.4\.so.*>
+# pkg:/library/c++/glibmm
+<transform file -> add pkg.depend.bypass-generate usr/lib(.*)/libgiomm-2\.4\.so.*>
+<transform file -> add pkg.depend.bypass-generate usr/lib(.*)/libglibmm-2\.4\.so.*>
+<transform file -> add pkg.depend.bypass-generate usr/lib(.*)/libglibmm_generate_extra_defs-2\.4\.so.*>
+# pkg:/library/c++/sigcpp
+<transform file -> add pkg.depend.bypass-generate usr/lib(.*)/libsigc-2\.0\.so.*>
