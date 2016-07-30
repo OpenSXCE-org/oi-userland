@@ -25,6 +25,13 @@ license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 # IPS can't find dependency for __main__ and interactiveshell
 <transform file path=(.*)\.py -> default pkg.depend.bypass-generate .*>
 
+depend type=require fmri=library/python/decorator-34
+depend type=require fmri=library/python/traitlets-34
+depend type=require fmri=library/python/ipython_genutils-34
+depend type=require fmri=library/python/pexpect-34
+# we don't deliver all pygments-34 dependencies
+#depend type=require fmri=library/python/pygments-34
+
 link path=usr/bin/ipython target=ipython3 mediator=python \
     mediator-version=3.4
 link path=usr/bin/iptest target=iptest3 mediator=python \

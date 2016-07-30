@@ -22,6 +22,12 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+depend type=require fmri=library/python/decorator-27
+depend type=require fmri=library/python/traitlets-27
+depend type=require fmri=library/python/ipython_genutils-27
+depend type=require fmri=library/python/pexpect-27
+depend type=require fmri=library/python/pygments-27
+
 # IPS can't find dependency for __main__ and interactiveshell
 <transform file path=(.*)\.py -> default pkg.depend.bypass-generate .*>
 

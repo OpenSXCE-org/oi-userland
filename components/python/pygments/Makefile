@@ -18,35 +18,53 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2012, 2013, Oracle and/or its affiliates. All rights reserved.
+
+#
+# Copyright (c) 2012, 2016, Oracle and/or its affiliates. All rights reserved.
 #
 include ../../../make-rules/shared-macros.mk
 
-PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
-
-COMPONENT_NAME=		decorator
-COMPONENT_VERSION=	3.4.0
-COMPONENT_REVISION=	1
+COMPONENT_NAME=		Pygments
+COMPONENT_VERSION=	2.1.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	\
-    sha256:c20b404cbb7ee5cebd506688e0114e3cd76f5ce233805a51f36e1a7988d9d783
+    sha256:88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81
 COMPONENT_ARCHIVE_URL=	$(call pypi_url)
-COMPONENT_PROJECT_URL=	http://pypi.python.org/pypi/decorator
+COMPONENT_PROJECT_URL=	http://pygments.org/
+COMPONENT_BUGDB=	python-mod/pygments
 
-PYTHON_VERSIONS = 2.6 2.7 3.4
+TPNO=			28720
 
-include $(WS_TOP)/make-rules/prep.mk
-include $(WS_TOP)/make-rules/setup.py.mk
-include $(WS_TOP)/make-rules/ips.mk
+PYTHON_VERSIONS=2.7
+
+include $(WS_MAKE_RULES)/prep.mk
+include $(WS_MAKE_RULES)/setup.py.mk
+include $(WS_MAKE_RULES)/ips.mk
+
+ASLR_MODE = $(ASLR_NOT_APPLICABLE)
+
+COMPONENT_TEST_ARGS=	tests/run.py
+COMPONENT_TEST_DIR=	$(SOURCE_DIR)
+
+COMPONENT_POST_INSTALL_ACTION = \
+	(cd $(PROTO_DIR)/usr/bin ; \
+         $(MV) -f pygmentize pygmentize-$(PYTHON_VERSION))
 
 # common targets
 build:		$(BUILD_NO_ARCH)
 
 install:	$(INSTALL_NO_ARCH)
 
-test:		$(NO_TESTS)
 
-REQUIRED_PACKAGES += runtime/python-26
-REQUIRED_PACKAGES += runtime/python-27
-REQUIRED_PACKAGES += runtime/python-34
+#
+# Some of the tests can fail if markupsafe isn't installed (the
+# dependency in indirect via mako which itself lacks a dependency on the
+# former.)
+#
+test:		$(TEST_NO_ARCH)
+
+system-test:    $(SYSTEM_TESTS_NOT_IMPLEMENTED)
+
+REQUIRED_PACKAGES += library/python/setuptools-27
+REQUIRED_PACKAGES += library/python/setuptools-34
