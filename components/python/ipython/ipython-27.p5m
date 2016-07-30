@@ -22,10 +22,12 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+depend type=require fmri=library/python/backports_shutil_get_terminal_size-27
 depend type=require fmri=library/python/decorator-27
 depend type=require fmri=library/python/traitlets-27
 depend type=require fmri=library/python/ipython_genutils-27
 depend type=require fmri=library/python/pexpect-27
+depend type=require fmri=library/python/ptyprocess-27
 depend type=require fmri=library/python/pygments-27
 
 # IPS can't find dependency for __main__ and interactiveshell

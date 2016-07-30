@@ -29,6 +29,7 @@ depend type=require fmri=library/python/decorator-34
 depend type=require fmri=library/python/traitlets-34
 depend type=require fmri=library/python/ipython_genutils-34
 depend type=require fmri=library/python/pexpect-34
+depend type=require fmri=library/python/ptyprocess-27
 # we don't deliver all pygments-34 dependencies
 #depend type=require fmri=library/python/pygments-34
 
